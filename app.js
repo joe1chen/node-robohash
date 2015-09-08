@@ -3,7 +3,8 @@
   Log = require('log');
   log = new Log(Log.DEBUG);
   Express = require('express');
-  app = Express.createServer();
+  var express = require("express");
+  var app = express();
   Robohash = require('./lib/robohash');
   Robostore = require('./lib/robostore');
   robostore = Robostore.getStorage("" + __dirname + "/data/robostore");
