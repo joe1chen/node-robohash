@@ -58,7 +58,9 @@
       }
     });
   });
-  app.listen(3000);
-  log.info("listening at port 3000");
-  console.log("open browser to http://localhost:3000");
+
+  var port = process.env.PORT || 3000;
+  app.listen(port);
+  log.info("listening at port " + port);
+  console.log("open browser to http://localhost:" + port);
 }).call(this);
