@@ -36,7 +36,10 @@
     });
   });
   app.get('/:hash', function(req, res) {
-    res.cacheControl({maxAge: 31536000}); /* 1 year cache */
+    res.cacheControl({
+      'public': true,
+      maxAge: 31536000
+    }); /* 1 year cache */
     return Robohash.randomBot(robostore, function(err, canvas) {
       var stream;
       if (err != null) {
