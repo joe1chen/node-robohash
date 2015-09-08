@@ -40,6 +40,7 @@
       'public': true,
       maxAge: 31536000
     }); /* 1 year cache */
+    res.set('Content-Type', 'image/png');
     return Robohash.randomBot(robostore, function(err, canvas) {
       var stream;
       if (err != null) {
