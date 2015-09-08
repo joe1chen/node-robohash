@@ -18,7 +18,8 @@
     "express": "< 4.0",
     "jade": ">= 0.12.4",
     "log": ">= 1.2.0",
-    "node-xml": ">= 1.0.0"
+    "node-xml": ">= 1.0.0",
+    "recluster": "^0.4.0"
   },
   "devDependencies": {}
 }
