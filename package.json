@@ -16,6 +16,7 @@
     "async": ">= 0.1.9",
     "canvas": ">= 0.6.0",
     "express": "< 4.0",
+    "express-cache-response-directive": "^0.2.0",
     "jade": ">= 0.12.4",
     "log": ">= 1.2.0",
     "node-xml": ">= 1.0.0",

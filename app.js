@@ -3,14 +3,15 @@
   Log = require('log');
   log = new Log(Log.DEBUG);
   Express = require('express');
-  var express = require("express");
-  var app = express();
+  var app = Express();
   Robohash = require('./lib/robohash');
   Robostore = require('./lib/robostore');
+  var cacheResponseDirective = require('express-cache-response-directive');
   robostore = Robostore.getStorage("" + __dirname + "/data/robostore");
   app.configure(function() {
     app.set('views', "" + __dirname + "/views");
     app.set('view engine', 'jade');
+    app.use(cacheResponseDirective());
     app.use(Express.bodyParser());
     return app.use(Express.methodOverride());
   });
@@ -35,6 +36,7 @@
     });
   });
   app.get('/:hash', function(req, res) {
+    res.cacheControl({maxAge: 31536000}); /* 1 year cache */
     return Robohash.randomBot(robostore, function(err, canvas) {
       var stream;
       if (err != null) {
